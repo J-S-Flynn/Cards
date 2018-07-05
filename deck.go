@@ -20,7 +20,7 @@ func newDeck() deck {
 	for _, suit := range suits {
 		for _, card := range cardNo {
 
-			fmt.Println(card + suit)
+			cards = append(cards, card+suit)
 
 		}
 		fmt.Println()
