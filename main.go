@@ -6,5 +6,18 @@ import (
 
 func main() {
 
-	fmt.Println("Adding to git as inital commit")
+	cards := []string{"Ace of Spades", newCard()}
+
+	cards = append(cards, "Ace of Clubs")
+	cards = append(cards, "Ace of Dimonds")
+
+	for i := 0; i < len(cards); i++ {
+
+		fmt.Println(cards[i])
+	}
+}
+
+func newCard() string {
+
+	return "Ace of Dimonds"
 }
