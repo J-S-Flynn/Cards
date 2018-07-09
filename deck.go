@@ -32,9 +32,9 @@ func newDeck() deck {
 //reciver is a var that is passed before the func name annotation
 func (d deck) print() {
 
-	for i, card := range d {
+	for _, card := range d {
 
-		fmt.Println(i, card)
+		fmt.Println(card)
 	}
 }
 
@@ -42,6 +42,12 @@ func (d deck) shuffle() {
 	fmt.Println("shuffle", d)
 }
 
-func (d deck) deal() {
+func deal(d deck, handSize int) (deck, deck) {
+
+	hand := d[:handSize]
+
+	remainder := d[handSize:]
+
+	return hand, remainder
 
 }
