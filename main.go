@@ -8,7 +8,16 @@ func main() {
 
 	hand, remaining := deal(cards, 3)
 
-	hand.print()
+	//hand.print()
+
+	//fmt.Println()
+
+	//remaining.print()
+
+	st := hand.saveDeck()
+	cmd := remaining.saveDeck()
+
+	fmt.Println(st)
 	fmt.Println()
-	remaining.print()
+	fmt.Println(cmd)
 }
