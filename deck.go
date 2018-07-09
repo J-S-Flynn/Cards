@@ -21,9 +21,7 @@ func newDeck() deck {
 		for _, card := range cardNo {
 
 			cards = append(cards, card+suit)
-
 		}
-		fmt.Println()
 	}
 
 	return cards
