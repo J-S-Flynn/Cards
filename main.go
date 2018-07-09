@@ -14,8 +14,8 @@ func main() {
 
 	//remaining.print()
 
-	st := hand.saveDeck()
-	cmd := remaining.saveDeck()
+	st := hand.toString()
+	cmd := remaining.toString()
 
 	fmt.Println(st)
 	fmt.Println()

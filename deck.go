@@ -4,6 +4,8 @@ package main // package name of main for an exicutable programme
 //in this perticuler programme only the fmt, and io/ioutil package is needed for print
 import (
 	"fmt"
+	"io/ioutil"
+	"strings"
 )
 
 // creates new type of deck
@@ -58,16 +60,10 @@ func deal(d deck, handSize int) (deck, deck) {
 
 func (d deck) toString() string {
 
-	var compleatString string
-
-	for i := 0; i < len(d); i++ {
-
-		compleatString = compleatString + d[i] + " "
-	}
-
-	return compleatString
+	return strings.Join([]string(d), ",")
 }
 
-func saveDeck() {
+func (d deck) saveDeck(fileName string) error {
 
+	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
 }
