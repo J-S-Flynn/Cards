@@ -4,6 +4,7 @@ package main // package name of main for an exicutable programme
 //in this perticuler programme only the fmt, and io/ioutil package is needed for print
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -62,11 +63,7 @@ func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
 }
 
-func toByteSlice(s string) []byte {
+func (d deck) saveDeck(fileName string) error {
 
-	return []byte(s)
-}
-
-func saveDeck() {
-
+	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
 }
