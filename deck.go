@@ -44,10 +44,6 @@ func (d deck) shuffle() {
 
 func deal(d deck, handSize int) (deck, deck) {
 
-	hand := d[:handSize]
-
-	remainder := d[handSize:]
-
-	return hand, remainder
+	return d[:handSize], d[handSize:]
 
 }
