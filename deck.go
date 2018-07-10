@@ -47,6 +47,7 @@ func (d deck) print() {
 //shffle is a little more complicate das it will
 func (d deck) shuffle() {
 	fmt.Println("shuffle", d)
+
 }
 
 //this is a good func to look at as it displays how go allows
@@ -63,6 +64,10 @@ func (d deck) toString() string {
 	return strings.Join([]string(d), ",")
 }
 
+//saves the deck , simple reciiver given any var of type deck it will call the toString func
+//and then save the content of the string returned as a byte slice to the file via io/ioutil writeFile method
+//the method takes in a file name(string) a slice of bytes and the permissions allowed to do it in this case 0666
+//more readingwill need to be done in regards to the permisions,
 func (d deck) saveDeck(fileName string) error {
 
 	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
