@@ -5,6 +5,7 @@ package main // package name of main for an exicutable programme
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -71,4 +72,16 @@ func (d deck) toString() string {
 func (d deck) saveDeck(fileName string) error {
 
 	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
+}
+
+func openFile(fileName string) deck {
+
+	bs, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		fmt.Println("Error, Error, Error : danger Will Robinson : ", err)
+		os.Exit(1)
+	}
+
+	hand := strings.Split(string(bs), ",")
+	return deck(hand)
 }

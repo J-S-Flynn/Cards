@@ -14,4 +14,8 @@ func main() {
 
 	hand.saveDeck("myHand")
 	remaining.saveDeck("restOfDeck")
+
+	newHand := openFile("myHand")
+
+	newHand.print()
 }
