@@ -47,6 +47,7 @@ func (d deck) print() {
 //shffle is a little more complicate das it will
 func (d deck) shuffle() {
 	fmt.Println("shuffle", d)
+
 }
 
 //this is a good func to look at as it displays how go allows
