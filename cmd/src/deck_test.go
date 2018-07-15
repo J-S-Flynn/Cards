@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 //test for new Deck
 func TestNewDeck(t *testing.T) {
@@ -57,4 +60,22 @@ func TestToString(t *testing.T) {
 	if handString != controlString {
 		t.Errorf("expected %v, got %v", controlString, handString)
 	}
+}
+
+//test save load function
+func TestSaveload(t *testing.T) {
+	os.Remove("TestSaveLoad")
+	d := newDeck()
+
+	hand, _ := deal(d, 5)
+
+	hand.saveDeck("TestSaveLoad")
+
+	loadDeck := loadDeck("TestSaveLoad")
+
+	if len(loadDeck) != len(hand) {
+		t.Errorf("expecting %v, got %v", len(hand), len(loadDeck))
+	}
+
+	os.Remove("TestSaveLoad")
 }
