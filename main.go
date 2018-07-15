@@ -6,18 +6,12 @@ func main() {
 
 	cards := newDeck()
 
-	hand, remaining := deal(cards, 3)
+	cards.shuffle()
 
-	//hand.print()
+	hand, remaining := deal(cards, 5)
 
-	//fmt.Println()
-
-	//remaining.print()
-
-	hand.shuffle()
-	remaining.shuffle()
-
-	//fmt.Print(hand)
-	fmt.Print(remaining)
+	hand.print()
+	fmt.Println()
+	remaining.print()
 
 }

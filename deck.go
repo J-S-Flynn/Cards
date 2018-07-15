@@ -8,6 +8,7 @@ import (
 	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 // creates new type of deck
@@ -49,21 +50,25 @@ func (d deck) print() {
 //shffle is a little more complicate das it will
 func (d deck) shuffle() {
 
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
 	for i := 0; i < len(d); i++ {
 
-		num := rand.Intn(len(d) - 1)
+		num := r.Intn(len(d) - 1)
 
 		d[i], d[num] = d[num], d[i]
 	}
 
-	for i := 0; i < len(d); i++ {
+	for k := 0; k < 5; k++ {
+		for i := 0; i < len(d); i++ {
 
-		numOne := rand.Intn(len(d) - 1)
-		numTwo := rand.Intn(len(d) - 1)
+			numOne := r.Intn(len(d) - 1)
+			numTwo := r.Intn(len(d) - 1)
 
-		d[numOne], d[numTwo] = d[numTwo], d[numOne]
+			d[numOne], d[numTwo] = d[numTwo], d[numOne]
+		}
 	}
-
 }
 
 //this is a good func to look at as it displays how go allows
