@@ -2,6 +2,7 @@ package main
 
 import "testing"
 
+//test for new Deck
 func TestNewDeck(t *testing.T) {
 
 	d := newDeck()
@@ -21,6 +22,7 @@ func TestNewDeck(t *testing.T) {
 	}
 }
 
+//test for deal
 func TestDeal(t *testing.T) {
 
 	d := newDeck()
@@ -36,5 +38,23 @@ func TestDeal(t *testing.T) {
 	if len(stack) != (len(d) - hSize) {
 
 		t.Errorf("ecpected %v, got %v", (len(d) - hSize), len(stack))
+	}
+}
+
+//test for tostring
+
+func TestToString(t *testing.T) {
+
+	var controlString string
+	controlString = "Ace of Hearts, Two of Hearts"
+	d := newDeck()
+
+	hand, _ := deal(d, 2)
+
+	var handString string
+	handString = hand.toString()
+
+	if handString != controlString {
+		t.Errorf("expected %v, got %v", controlString, handString)
 	}
 }

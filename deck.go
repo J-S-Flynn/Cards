@@ -85,7 +85,7 @@ func deal(d deck, handSize int) (deck, deck) {
 //be returned.
 func (d deck) toString() string {
 
-	return strings.Join([]string(d), ",")
+	return strings.Join([]string(d), ", ")
 }
 
 //saves the deck , simple reciiver given any var of type deck it will call the toString func
