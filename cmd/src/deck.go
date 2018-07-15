@@ -100,7 +100,7 @@ func (d deck) saveDeck(fileName string) error {
 //func opens a file given a file name as a string then checks to see if file is there
 //if it is it siply converst the silce of bytes withing the file back in to a string and then splits that string
 //using the diliniator which in this case is a comma ",". then casts the slice of strings to type deck and retutns the value
-func openFile(fileName string) deck {
+func loadDeck(fileName string) deck {
 
 	bs, err := ioutil.ReadFile(fileName)
 	if err != nil {

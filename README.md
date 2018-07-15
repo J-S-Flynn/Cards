@@ -1,1 +1,1 @@
-Cards
+Cards is a simple programme to show the usefulness of the go programming language. The programme has a main file, a cards file and a test file. the test file should not be considered extensive but gives some insite into testing in go.
