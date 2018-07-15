@@ -5,6 +5,7 @@ package main // package name of main for an exicutable programme
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"strings"
 )
@@ -47,7 +48,21 @@ func (d deck) print() {
 
 //shffle is a little more complicate das it will
 func (d deck) shuffle() {
-	fmt.Println("shuffle", d)
+
+	for i := 0; i < len(d); i++ {
+
+		num := rand.Intn(len(d) - 1)
+
+		d[i], d[num] = d[num], d[i]
+	}
+
+	for i := 0; i < len(d); i++ {
+
+		numOne := rand.Intn(len(d) - 1)
+		numTwo := rand.Intn(len(d) - 1)
+
+		d[numOne], d[numTwo] = d[numTwo], d[numOne]
+	}
 
 }
 
@@ -60,6 +75,9 @@ func deal(d deck, handSize int) (deck, deck) {
 
 }
 
+//calles the jion method on a slice of strings to return a single string, we use the method jion from the strings
+//the reciver can be called on aby var of type deck and will concatinate the vales of each slice into a single string to
+//be returned.
 func (d deck) toString() string {
 
 	return strings.Join([]string(d), ",")
@@ -74,6 +92,9 @@ func (d deck) saveDeck(fileName string) error {
 	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
 }
 
+//func opens a file given a file name as a string then checks to see if file is there
+//if it is it siply converst the silce of bytes withing the file back in to a string and then splits that string
+//using the diliniator which in this case is a comma ",". then casts the slice of strings to type deck and retutns the value
 func openFile(fileName string) deck {
 
 	bs, err := ioutil.ReadFile(fileName)
