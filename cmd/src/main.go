@@ -1,5 +1,6 @@
 package main
 
+// simple programme to show the use of go.
 import "fmt"
 
 func main() {
